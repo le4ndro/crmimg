@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  descricao: MyString
+  observacao: MyText
+  status: MyString
+  receita_estimada: 9.99
+  probabilidade: MyString
+
+two:
+  nome: MyString
+  descricao: MyString
+  observacao: MyText
+  status: MyString
+  receita_estimada: 9.99
+  probabilidade: MyString

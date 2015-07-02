@@ -1,0 +1,98 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cliente_potencial.nome %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @cliente_potencial.descricao %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @cliente_potencial.website %>
+</p>
+
+<p>
+  <strong>Observacao:</strong>
+  <%= @cliente_potencial.observacao %>
+</p>
+
+<h1>Oportunidades</h1>
+
+<%= link_to 'Incluir Oportunidade', new_cliente_potencial_oportunidade_path(@cliente_potencial) %><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descricao</th>
+      <th>Observacao</th>
+      <th>Status</th>
+      <th>Receita estimada</th>
+      <th>Probabilidade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cliente_potencial.oportunidades.each do |oportunidade| %>
+      <tr>
+        <td><%= oportunidade.nome %></td>
+        <td><%= oportunidade.descricao %></td>
+        <td><%= oportunidade.observacao %></td>
+        <td><%= oportunidade.status %></td>
+        <td><%= oportunidade.receita_estimada %></td>
+        <td><%= oportunidade.probabilidade %></td>
+        <td><%= link_to 'Show', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) %></td>
+        <td><%= link_to 'Edit', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) %></td>
+        <td><%= link_to 'Destroy', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h1>Contatos</h1>
+
+<%= link_to 'Incluir Contato', new_cliente_potencial_contato_path(@cliente_potencial) %><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cargo</th>
+      <th>Telefone</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th>Facebook</th>
+      <th>Linkedin</th>
+      <th>Googleplus</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cliente_potencial.contatos.each do |contato| %>
+      <tr>
+        <td><%= contato.nome %></td>
+        <td><%= contato.cargo %></td>
+        <td><%= contato.telefone %></td>
+        <td><%= contato.celular %></td>
+        <td><%= contato.email %></td>
+        <td><%= contato.facebook %></td>
+        <td><%= contato.linkedin %></td>
+        <td><%= contato.googleplus %></td>
+        <td><%= link_to 'Show', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id) %></td>
+        <td><%= link_to 'Edit', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id) %></td>
+        <td><%= link_to 'Destroy', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_cliente_potencial_path(@cliente_potencial) %> |
+<%= link_to 'Back', cliente_potencials_path %>

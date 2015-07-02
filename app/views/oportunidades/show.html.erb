@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @oportunidade.nome %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @oportunidade.descricao %>
+</p>
+
+<p>
+  <strong>Observacao:</strong>
+  <%= @oportunidade.observacao %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @oportunidade.status %>
+</p>
+
+<p>
+  <strong>Receita estimada:</strong>
+  <%= @oportunidade.receita_estimada %>
+</p>
+
+<p>
+  <strong>Probabilidade:</strong>
+  <%= @oportunidade.probabilidade %>
+</p>
+
+<%= link_to 'Edit', edit_oportunidade_path(@oportunidade) %> |
+<%= link_to 'Back', oportunidades_path %>

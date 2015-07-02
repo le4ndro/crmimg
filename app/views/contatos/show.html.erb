@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @contato.nome %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @contato.cargo %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @contato.telefone %>
+</p>
+
+<p>
+  <strong>Celular:</strong>
+  <%= @contato.celular %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contato.email %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @contato.facebook %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @contato.linkedin %>
+</p>
+
+<p>
+  <strong>Googleplus:</strong>
+  <%= @contato.googleplus %>
+</p>
+
+
+<%= link_to 'Edit', edit_cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) %> |
+<%= link_to 'Back', cliente_potencial_path(@contato.cliente_potencial_id) %>

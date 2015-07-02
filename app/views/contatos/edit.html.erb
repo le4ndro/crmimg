@@ -1,0 +1,6 @@
+<h1>Editing Contato</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) %> |
+<%= link_to 'Back', cliente_potencial_path(@contato.cliente_potencial_id) %>
