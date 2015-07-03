@@ -1,0 +1,45 @@
+<%= form_for([@cliente_potencial, @oportunidade, @atividade]) do |f| %>
+  <% if @atividade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@atividade.errors.count, "error") %> prohibited this atividade from being saved:</h2>
+
+      <ul>
+      <% @atividade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tipo %><br>
+    <%= f.select(:tipo, 
+        options_for_select([['Telefonema', '1'], ['E-Mail', '2'], ['Reunião', '3'], ['Visita', '4']]), {}, {class: "form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :descricao, "Descrição" %><br>
+    <%= f.text_area :descricao, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :observacao, "Observações" %><br>
+    <%= f.text_area :observacao, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :acompanhamento %><br>
+    <%= f.text_area :acompanhamento, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status %><br>
+    <%= f.select(:status, 
+        options_for_select([['Não iniciada', '1'], ['Em andamento', '2'], ['Parada', '3'], ['Cancelada', '4'], ['Concluída', '5']]), {}, {class: "form-control"}) %>
+  </div>
+  
+  <%= f.hidden_field :oportunidade_id %>
+  <div class="actions">
+    <%= f.submit "Gravar", class: "btn btn-default" %>
+  </div>
+<% end %>

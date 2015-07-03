@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  
   resources :produtos
   resources :cliente_potencials do
-    resources :oportunidades
+    resources :oportunidades do
+      resources :atividades
+    end      
     resources :contatos
   end
 

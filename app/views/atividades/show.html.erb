@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= @atividade.nome %></h1>
+</div>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= atividade_tipo(@atividade.tipo)  %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @atividade.descricao %>
+</p>
+
+<p>
+  <strong>Acompanhamento:</strong>
+  <%= @atividade.acompanhamento %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= atividade_status(@atividade.status) %>
+</p>
+
+<p>
+  <strong>Observações:</strong>
+  <%= @atividade.observacao %>
+</p>
+
+<p>
+  <strong>Oportunidade:</strong>
+  <%= @atividade.oportunidade.nome %>
+</p>
+
+<%= link_to 'Editar', edit_cliente_potencial_oportunidade_atividade_path(@atividade.oportunidade.cliente_potencial_id, @atividade.oportunidade.id, @atividade.id) %> |
+<%= link_to 'Voltar', cliente_potencial_oportunidade_path(@atividade.oportunidade.cliente_potencial_id, @atividade.oportunidade.id) %>

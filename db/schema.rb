@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702154309) do
+ActiveRecord::Schema.define(version: 20150703015740) do
+
+  create_table "atividades", force: :cascade do |t|
+    t.string   "nome",            limit: 255
+    t.string   "tipo",            limit: 255
+    t.text     "descricao",       limit: 65535
+    t.text     "observacao",      limit: 65535
+    t.text     "acompanhamento",  limit: 65535
+    t.string   "status",          limit: 255
+    t.integer  "oportunidade_id", limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "atividades", ["oportunidade_id"], name: "index_atividades_on_oportunidade_id", using: :btree
 
   create_table "cliente_potencials", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -61,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150702154309) do
     t.datetime "updated_at",                              null: false
   end
 
+  add_foreign_key "atividades", "oportunidades"
   add_foreign_key "contatos", "cliente_potencials"
   add_foreign_key "oportunidades", "cliente_potencials"
 end
