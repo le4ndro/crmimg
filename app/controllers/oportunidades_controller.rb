@@ -19,25 +19,29 @@ class OportunidadesController < ApplicationController
   end
 
   def create
-    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
     @oportunidade = Oportunidade.new(oportunidade_params)
-    @oportunidade.save
 
-    redirect_to cliente_potencial_path(@cliente_potencial)
+    if @oportunidade.save
+      redirect_to cliente_potencial_path(params[:cliente_potencial_id])
+    else
+      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      render "oportunidades/new"
+    end    
   end
 
   def update
-    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
-    @oportunidade.update(oportunidade_params)
-
-    redirect_to cliente_potencial_path(@cliente_potencial)
+    if @oportunidade.update(oportunidade_params)
+      redirect_to cliente_potencial_path(params[:cliente_potencial_id])
+    else
+      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      render "oportunidades/edit"
+    end    
   end
 
   def destroy
-    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
     @oportunidade.destroy
 
-    redirect_to cliente_potencial_path(@cliente_potencial)
+    redirect_to cliente_potencial_path(params[:cliente_potencial_id])
   end
 
   private

@@ -18,26 +18,29 @@ class ContatosController < ApplicationController
     @contato = Contato.find(params[:id])
   end
 
-  
   def create
-    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
-    @contato = Contato.new(contato_params)
-
-    @contato.save
-
-    redirect_to cliente_potencial_path(@cliente_potencial)
     
+    @contato = Contato.new(contato_params)
+    if @contato.save
+      redirect_to cliente_potencial_path(params[:cliente_potencial_id])
+    else
+      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      render "contatos/new"
+    end  
   end
 
   def update
-    @contato.update(contato_params)
-    redirect_to cliente_potencial_path(@contato.cliente_potencial_id)
+    if @contato.update(contato_params)
+      redirect_to cliente_potencial_path(params[:cliente_potencial_id])
+    else
+      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      render "contatos/edit"
+    end    
   end
-
   
   def destroy
     @contato.destroy
-    redirect_to cliente_potencial_path(@contato.cliente_potencial_id)
+    redirect_to cliente_potencial_path(params[:cliente_potencial_id])
   end
 
   private

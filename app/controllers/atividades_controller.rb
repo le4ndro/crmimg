@@ -22,15 +22,23 @@ class AtividadesController < ApplicationController
 
   def create
     @atividade = Atividade.new(atividade_params)
-    @atividade.save
-
-    redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+    if @atividade.save
+      redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+    else
+      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      @oportunidade = Oportunidade.find(params[:oportunidade_id])
+      render "atividades/new"
+    end    
   end
 
   def update
-    @atividade.update(atividade_params)
-
-    redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+    if @atividade.update(atividade_params)
+      redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+    else
+      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      @oportunidade = Oportunidade.find(params[:oportunidade_id])
+      render "atividades/edit"
+    end    
   end
 
   def destroy
