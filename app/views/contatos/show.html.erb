@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= @contato.nome %></h1>
+</div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @contato.nome %>
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Cargo:</strong>
@@ -41,5 +40,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) %> |
-<%= link_to 'Back', cliente_potencial_path(@contato.cliente_potencial_id) %>
+<%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) %> |
+<%= link_to 'Voltar', cliente_potencial_path(@contato.cliente_potencial_id) %>

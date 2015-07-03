@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @produto.nome %>
-</p>
+<div class="page-header">
+	<h1><%= @produto.nome %></h1>
+</div>
 
 <p>
   <strong>Descricao:</strong>
@@ -20,5 +19,5 @@
   <%= @produto.obs %>
 </p>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Editar', edit_produto_path(@produto) %> |
+<%= link_to 'Voltar', produtos_path %>

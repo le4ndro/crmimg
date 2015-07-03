@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @oportunidade.nome %>
-</p>
-
+<div class="page-header">
+  <h1><%= @oportunidade.nome %></h1>
+</div>
 <p>
   <strong>Descricao:</strong>
   <%= @oportunidade.descricao %>
-</p>
-
-<p>
-  <strong>Observacao:</strong>
-  <%= @oportunidade.observacao %>
 </p>
 
 <p>
@@ -30,5 +23,10 @@
   <%= @oportunidade.probabilidade %>
 </p>
 
-<%= link_to 'Edit', edit_oportunidade_path(@oportunidade) %> |
-<%= link_to 'Back', oportunidades_path %>
+<p>
+  <strong>Observacao:</strong>
+  <%= @oportunidade.observacao %>
+</p>
+
+<%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => @oportunidade.cliente_potencial_id, :id => @oportunidade.id) %> |
+<%= link_to 'Voltar', cliente_potencial_path(@oportunidade.cliente_potencial_id) %>

@@ -32,25 +32,12 @@ class ContatosController < ApplicationController
   def update
     @contato.update(contato_params)
     redirect_to cliente_potencial_path(@contato.cliente_potencial_id)
-    # respond_to do |format|
-    #   if @contato.update(contato_params)
-    #     format.html { redirect_to @contato, notice: 'Contato was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @contato }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @contato.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   
   def destroy
     @contato.destroy
     redirect_to cliente_potencial_path(@contato.cliente_potencial_id)
-    # respond_to do |format|
-    #   format.html { redirect_to contatos_url, notice: 'Contato was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
   end
 
   private

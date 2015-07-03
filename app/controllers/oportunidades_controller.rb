@@ -24,40 +24,20 @@ class OportunidadesController < ApplicationController
     @oportunidade.save
 
     redirect_to cliente_potencial_path(@cliente_potencial)
-    # respond_to do |format|
-    #   if @oportunidade.save
-    #     format.html { redirect_to @oportunidade, notice: 'Oportunidade was successfully created.' }
-    #     format.json { render :show, status: :created, location: @oportunidade }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @oportunidade.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   def update
+    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
     @oportunidade.update(oportunidade_params)
 
     redirect_to cliente_potencial_path(@cliente_potencial)
-    # respond_to do |format|
-    #   if @oportunidade.update(oportunidade_params)
-    #     format.html { redirect_to @oportunidade, notice: 'Oportunidade was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @oportunidade }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @oportunidade.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   def destroy
+    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
     @oportunidade.destroy
 
     redirect_to cliente_potencial_path(@cliente_potencial)
-    # respond_to do |format|
-    #   format.html { redirect_to oportunidades_url, notice: 'Oportunidade was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
   end
 
   private

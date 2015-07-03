@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+  
+  <div class="form-group">
+    <%= f.label :nome, "Nome" %><br>
+    <%= f.text_field :nome, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
+  <div class="form-group">
+    <%= f.label :descricao, "Descrição" %><br>
+    <%= f.text_field :descricao, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :observacao %><br>
-    <%= f.text_area :observacao %>
-  </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%= f.select(:status, 
+        options_for_select([['Em andamento', '1'], ['Ganho', '2'], ['Perdido', '3']]), {}, {class: "form-control"}) %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :receita_estimada %><br>
-    <%= f.text_field :receita_estimada %>
+    <%= f.text_field :receita_estimada, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :probabilidade %><br>
-    <%= f.text_field :probabilidade %>
+    <%= f.select(:probabilidade, 
+        options_for_select([['Remota', '1'], ['Baixa', '2'], ['Grande', '3'], ['Quente', '4']]), {}, {class: "form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :observacao, "Observações" %><br>
+    <%= f.text_area :observacao, class: "form-control" %>
   </div>
   <%= f.hidden_field :cliente_potencial_id %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Gravar", class: "btn btn-default" %>
   </div>
+  
 <% end %>

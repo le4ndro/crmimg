@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Cliente Potencials</h1>
+<div class="page-header">
+  <h1>Clientes Potenciais</h1>
+</div>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Descricao</th>
+      <th>Descrição</th>
       <th>Website</th>
-      <th>Observacao</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,10 +20,9 @@
         <td><%= cliente_potencial.nome %></td>
         <td><%= cliente_potencial.descricao %></td>
         <td><%= cliente_potencial.website %></td>
-        <td><%= cliente_potencial.observacao %></td>
-        <td><%= link_to 'Show', cliente_potencial %></td>
-        <td><%= link_to 'Edit', edit_cliente_potencial_path(cliente_potencial) %></td>
-        <td><%= link_to 'Destroy', cliente_potencial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', cliente_potencial, :class => "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_cliente_potencial_path(cliente_potencial), :class => "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Excluir', cliente_potencial, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-default btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Cliente potencial', new_cliente_potencial_path %>
+<%= link_to 'Novo Cliente Potencial', new_cliente_potencial_path, :class => "btn btn-default" %>

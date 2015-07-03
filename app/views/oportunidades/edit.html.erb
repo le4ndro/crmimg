@@ -1,6 +1,17 @@
-<h1>Editing Oportunidade</h1>
+<div class="page-header">
+	<h1>Editar Oportunidade</h1>
+</div>
 
-<%= render 'form' %>
+<div class="row">
+	<div class="col-md-6">
+		<%= render 'form' %>
+	</div>
+</div>
 
-<%= link_to 'Show', @oportunidade %> |
-<%= link_to 'Back', oportunidades_path %>
+<div class="row">
+	<div class="col-md-6">
+		<%= link_to 'Exibir', cliente_potencial_oportunidade_path(:cliente_potencial_id => @oportunidade.cliente_potencial_id, :id => @oportunidade.id) %> |
+<%= link_to 'Voltar', cliente_potencial_path(@oportunidade.cliente_potencial_id) %>
+
+	</div>
+</div>

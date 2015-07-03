@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @cliente_potencial.nome %>
-</p>
+<div class="page-header">
+  <h1><%= @cliente_potencial.nome %></h1>
+</div>
 
 <p>
-  <strong>Descricao:</strong>
+  <strong>Descrição:</strong>
   <%= @cliente_potencial.descricao %>
 </p>
 
@@ -16,20 +15,19 @@
 </p>
 
 <p>
-  <strong>Observacao:</strong>
+  <strong>Observações:</strong>
   <%= @cliente_potencial.observacao %>
 </p>
 
-<h1>Oportunidades</h1>
+<h3>Oportunidades</h3>
 
-<%= link_to 'Incluir Oportunidade', new_cliente_potencial_oportunidade_path(@cliente_potencial) %><br>
+<%= link_to 'Incluir Oportunidade', new_cliente_potencial_oportunidade_path(@cliente_potencial), :class => "btn btn-default" %><br><br>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Descricao</th>
-      <th>Observacao</th>
+      <th>Descrição</th>
       <th>Status</th>
       <th>Receita estimada</th>
       <th>Probabilidade</th>
@@ -42,24 +40,23 @@
       <tr>
         <td><%= oportunidade.nome %></td>
         <td><%= oportunidade.descricao %></td>
-        <td><%= oportunidade.observacao %></td>
-        <td><%= oportunidade.status %></td>
+        <td><%= oportunidade_status(oportunidade.status) %></td>
         <td><%= oportunidade.receita_estimada %></td>
-        <td><%= oportunidade.probabilidade %></td>
-        <td><%= link_to 'Show', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) %></td>
-        <td><%= link_to 'Edit', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) %></td>
-        <td><%= link_to 'Destroy', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= oportunidade_probabilidade(oportunidade.probabilidade) %></td>
+        <td><%= link_to 'Exibir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) %></td>
+        <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) %></td>
+        <td><%= link_to 'Excluir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
-<h1>Contatos</h1>
+<h3>Contatos</h3>
 
-<%= link_to 'Incluir Contato', new_cliente_potencial_contato_path(@cliente_potencial) %><br>
+<%= link_to 'Incluir Contato', new_cliente_potencial_contato_path(@cliente_potencial), :class => "btn btn-default" %><br><br>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
@@ -86,13 +83,13 @@
         <td><%= contato.facebook %></td>
         <td><%= contato.linkedin %></td>
         <td><%= contato.googleplus %></td>
-        <td><%= link_to 'Show', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id) %></td>
-        <td><%= link_to 'Edit', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id) %></td>
-        <td><%= link_to 'Destroy', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id) %></td>
+        <td><%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id) %></td>
+        <td><%= link_to 'Excluir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_cliente_potencial_path(@cliente_potencial) %> |
-<%= link_to 'Back', cliente_potencials_path %>
+<%= link_to 'Editar', edit_cliente_potencial_path(@cliente_potencial) %> |
+<%= link_to 'Voltar', cliente_potencials_path %>
