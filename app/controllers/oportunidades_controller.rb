@@ -2,7 +2,8 @@ class OportunidadesController < ApplicationController
   before_action :set_oportunidade, only: [:show, :edit, :update, :destroy]
 
   def index
-    @oportunidades = Oportunidade.all
+    #@oportunidades = Oportunidade.all
+    redirect_to cliente_potencial_path(params[:cliente_potencial_id])
   end
 
   def show

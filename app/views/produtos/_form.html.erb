@@ -11,16 +11,18 @@
     </div>
   <% end %>
 
+  <div><span style="color:red;">*</span> Indica campos obrigatórios</div><br/><br/>
+
   <div class="form-group">
-    <%= f.label :nome, "Nome" %><br>
+    <%= f.label :nome, "Nome" %>&nbsp;<span style="color:red;">*</span>
     <%= f.text_field :nome, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :descricao, "Descrição" %><br>
+    <%= f.label :descricao, "Descrição" %>&nbsp;<span style="color:red;">*</span>
     <%= f.text_area :descricao, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :preco, "Preço" %><br>
+    <%= f.label :preco, "Preço" %>&nbsp;<span style="color:red;">*</span>
     <%= f.text_field :preco, class: "form-control" %>
   </div>
   <div class="form-group">
