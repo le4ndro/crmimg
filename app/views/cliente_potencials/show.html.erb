@@ -21,7 +21,7 @@
 
 <h3>Oportunidades</h3>
 
-<%= link_to 'Incluir Oportunidade', new_cliente_potencial_oportunidade_path(@cliente_potencial), :class => "btn btn-default" %><br><br>
+<%= link_to 'Incluir Oportunidade', new_cliente_potencial_oportunidade_path(@cliente_potencial), :class => "btn btn-primary" %><br><br>
 
 <table class="table table-bordered">
   <thead>
@@ -43,9 +43,9 @@
         <td><%= oportunidade_status(oportunidade.status) %></td>
         <td><%= oportunidade.receita_estimada %></td>
         <td><%= oportunidade_probabilidade(oportunidade.probabilidade) %></td>
-        <td><%= link_to 'Exibir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) , :class => "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) , :class => "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Excluir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Tem certeza?' } , :class => "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Exibir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) , :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) , :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Excluir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Tem certeza?' } , :class => "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -54,7 +54,7 @@
 
 <h3>Contatos</h3>
 
-<%= link_to 'Incluir Contato', new_cliente_potencial_contato_path(@cliente_potencial), :class => "btn btn-default" %><br><br>
+<%= link_to 'Incluir Contato', new_cliente_potencial_contato_path(@cliente_potencial), :class => "btn btn-primary" %><br><br>
 
 <table class="table table-bordered">
   <thead>
@@ -83,9 +83,9 @@
         <td><%= contato.facebook %></td>
         <td><%= contato.linkedin %></td>
         <td><%= contato.googleplus %></td>
-        <td><%= link_to 'Exibir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), :class => "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), :class => "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Excluir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Exibir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Excluir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>

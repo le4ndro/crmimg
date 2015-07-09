@@ -30,7 +30,7 @@
 
 <h3>Atividades</h3>
 
-<%= link_to 'Nova Atividade', new_cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id), :class => "btn btn-default" %><br><br>
+<%= link_to 'Nova Atividade', new_cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id), :class => "btn btn-primary" %><br><br>
 
 <table class="table table-bordered">
   <thead>
@@ -50,9 +50,9 @@
         <td><%= atividade_tipo(atividade.tipo) %></td>
         <td><%= atividade.descricao %></td>
         <td><%= atividade_status(atividade.status) %></td>
-        <td><%= link_to 'Exibir', cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), :class => "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), :class => "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Excluir', cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Exibir', cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Excluir', cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
