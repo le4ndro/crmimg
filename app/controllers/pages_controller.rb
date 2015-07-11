@@ -8,6 +8,5 @@ class PagesController < ApplicationController
 	end
 
 	def recoversubdomain
-		@domain = 'http://meusubdominio.' + ENV["DOMAIN"]
 	end
 end
