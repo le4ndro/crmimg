@@ -33,6 +33,12 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :subdomain, "Subdomínio" %><br>
+    <%= f.text_field :subdomain, class: "form-control" %>
+    <!--<span class="input-group-addon">.timetracker.dev</span>-->
+  </div>
+
   <div class="actions">
     <%= f.submit "Gravar", class: "btn btn-primary" %>
   </div>
