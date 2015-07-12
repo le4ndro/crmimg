@@ -39,6 +39,11 @@
   <%= @contato.googleplus %>
 </p>
 
+<p>
+  <strong>Observações:</strong>
+  <%= @contato.observacao %>
+</p>
+
 
 <%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) %> |
 <%= link_to 'Voltar', cliente_potencial_path(@contato.cliente_potencial_id) %>

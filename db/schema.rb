@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150709191936) do
     t.string   "facebook"
     t.string   "linkedin"
     t.string   "googleplus"
+    t.text     "observacao"
     t.integer  "cliente_potencial_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 20150709191936) do
 
   create_table "oportunidades", force: :cascade do |t|
     t.string   "nome"
-    t.string   "descricao"
+    t.text     "descricao"
     t.text     "observacao"
     t.string   "status"
     t.decimal  "receita_estimada"
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 20150709191936) do
     t.string   "nome"
     t.text     "descricao"
     t.decimal  "preco"
-    t.text     "obs"
+    t.text     "observacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -9,6 +9,7 @@ class CreateContatos < ActiveRecord::Migration
       t.string :facebook
       t.string :linkedin
       t.string :googleplus
+      t.text :observacao
       t.references :cliente_potencial, index: true, foreign_key: true
 
       t.timestamps null: false

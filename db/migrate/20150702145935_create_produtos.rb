@@ -4,7 +4,7 @@ class CreateProdutos < ActiveRecord::Migration
       t.string :nome
       t.text :descricao
       t.decimal :preco
-      t.text :obs
+      t.text :observacao
 
       t.timestamps null: false
     end

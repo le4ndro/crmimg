@@ -1,8 +1,19 @@
 body {
-  padding-top: 50px;
+  padding-top: 70px;
 }
-.wrapper {
-  padding: 40px 15px;
-  text-align: center;
+
+#flash-notice {
+  @extend .alert;
+  @extend .alert-success;
+}
+
+#flash-error, #flash-alert {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+#flash-warning {
+  @extend .alert;
+  @extend .alert-warning;
 }
 

@@ -45,6 +45,10 @@
     <%= f.label :googleplus %><br>
     <%= f.text_field :googleplus, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= f.label :observacao, "Observações" %><br>
+    <%= f.text_area :observacao, class: "form-control" %>
+  </div>
   <%= f.hidden_field :cliente_potencial_id %>
   <div class="actions">
     <%= f.submit "Gravar", class: "btn btn-primary" %>
