@@ -7,4 +7,10 @@ class Oportunidade < ActiveRecord::Base
 
 	belongs_to :cliente_potencial
 	has_many :atividades
+
+	belongs_to :decisor, class_name: "Contato"
+	belongs_to :influenciador, class_name: "Contato"
+	belongs_to :comprador, class_name: "Contato"
+
+	accepts_nested_attributes_for :decisor
 end

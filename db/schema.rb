@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719152902) do
+ActiveRecord::Schema.define(version: 20150719174322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20150719152902) do
     t.text     "observacao"
     t.text     "acompanhamento"
     t.string   "status"
+    t.string   "prioridade"
+    t.date     "data_prevista"
+    t.date     "data_realizada"
     t.integer  "oportunidade_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -90,9 +93,13 @@ ActiveRecord::Schema.define(version: 20150719152902) do
     t.string   "status"
     t.decimal  "receita_estimada"
     t.string   "probabilidade"
+    t.string   "etapa"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "cliente_potencial_id"
+    t.integer  "decisor_id"
+    t.integer  "influenciador_id"
+    t.integer  "comprador_id"
   end
 
   add_index "oportunidades", ["cliente_potencial_id"], name: "index_oportunidades_on_cliente_potencial_id", using: :btree

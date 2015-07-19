@@ -23,4 +23,23 @@ module OportunidadesHelper
 			@status = "Quente"    
 		end
 	end
+	
+	def oportunidade_etapa(etapa)
+		case etapa
+		when '1'
+		  @status = "Prospecção"
+		when '2'
+		  @status = "Qualificação"
+		when '3'
+		  @status = "Apresentação"
+		when '4'
+			@status = "Maturação"
+		when '5'
+			@status = "Negociação"
+		when '6'
+			@status = "Fechamento"
+		when '7'
+			@status = "Pós-Venda"			    
+		end
+	end
 end

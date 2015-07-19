@@ -27,5 +27,20 @@ module AtividadesHelper
 		  @status = "Concluída"  
 		end
 	end
+	
+	def atividade_prioridade(prioridade)
+		case prioridade
+		when '1'
+		  @status = "Baixa"
+		when '2'
+		  @status = "Média"
+		when '3'
+		  @status = "Alta"  
+		when '4'
+		  @status = "Urgente"  
+		when '5'
+		  @status = "Crítica"  
+		end
+	end
 
 end

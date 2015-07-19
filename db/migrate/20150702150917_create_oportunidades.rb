@@ -7,6 +7,7 @@ class CreateOportunidades < ActiveRecord::Migration
       t.string :status
       t.decimal :receita_estimada
       t.string :probabilidade
+      t.string :etapa
       t.text :observacao
 
       t.timestamps null: false
