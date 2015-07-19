@@ -42,9 +42,13 @@ ActiveRecord::Schema.define(version: 20150709191936) do
     t.string   "nome"
     t.text     "descricao"
     t.string   "website"
+    t.string   "setor"
+    t.string   "porte"
+    t.integer  "numero_funcionarios"
+    t.decimal  "faturamento"
     t.text     "observacao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "contatos", force: :cascade do |t|

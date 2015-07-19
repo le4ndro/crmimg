@@ -69,6 +69,6 @@ class ClientePotencialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_potencial_params
-      params.require(:cliente_potencial).permit(:nome, :descricao, :website, :observacao)
+      params.require(:cliente_potencial).permit(:nome, :descricao, :website, :setor, :porte, :numero_funcionarios, :faturamento ,:observacao)
     end
 end
