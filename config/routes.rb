@@ -12,6 +12,7 @@ end
 
 Rails.application.routes.draw do
 
+  resources :enderecos
   constraints(SubdomainPresent) do
     root 'pages#dashboard', as: :subdomain_root
     devise_for :users
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
         resources :atividades
       end      
       resources :contatos
+      resources :enderecos
     end
   end
 

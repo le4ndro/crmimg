@@ -3,4 +3,5 @@ class ClientePotencial < ActiveRecord::Base
 
 	has_many :contatos
   has_many :oportunidades
+  has_many :enderecos
 end

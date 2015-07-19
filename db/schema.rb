@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709191936) do
+ActiveRecord::Schema.define(version: 20150719152902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,21 @@ ActiveRecord::Schema.define(version: 20150709191936) do
 
   add_index "contatos", ["cliente_potencial_id"], name: "index_contatos_on_cliente_potencial_id", using: :btree
 
+  create_table "enderecos", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "logradouro"
+    t.string   "complemento"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "uf"
+    t.string   "cep"
+    t.integer  "cliente_potencial_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "enderecos", ["cliente_potencial_id"], name: "index_enderecos_on_cliente_potencial_id", using: :btree
+
   create_table "oportunidades", force: :cascade do |t|
     t.string   "nome"
     t.text     "descricao"
@@ -112,5 +127,6 @@ ActiveRecord::Schema.define(version: 20150709191936) do
 
   add_foreign_key "atividades", "oportunidades"
   add_foreign_key "contatos", "cliente_potencials"
+  add_foreign_key "enderecos", "cliente_potencials"
   add_foreign_key "oportunidades", "cliente_potencials"
 end
