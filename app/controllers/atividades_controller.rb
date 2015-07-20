@@ -9,34 +9,41 @@ class AtividadesController < ApplicationController
   end
 
   def new
-    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
-    @oportunidade = Oportunidade.find(params[:oportunidade_id])
-    @atividade = @oportunidade.atividades.build
+    #@cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+    #@oportunidade = Oportunidade.find(params[:oportunidade_id])
+    #@atividade = @oportunidade.atividades.build
+    @atividade = Atividade.new
+    @cliente_potencials = ClientePotencial.all
+    @oportunidades = Oportunidade.where("cliente_potencial_id = ?", ClientePotencial.first.id)
   end
 
   def edit
-    @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
-    @oportunidade = Oportunidade.find(params[:oportunidade_id])
+    #@cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+    #@oportunidade = Oportunidade.find(params[:oportunidade_id])
     @atividade = Atividade.find(params[:id])
+    @cliente_potencials = ClientePotencial.all
+    @oportunidades = Oportunidade.where("cliente_potencial_id = ?", ClientePotencial.first.id)
   end
 
   def create
     @atividade = Atividade.new(atividade_params)
     if @atividade.save
-      redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+      #redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+      redirect_to atividades_path
     else
-      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
-      @oportunidade = Oportunidade.find(params[:oportunidade_id])
+      #@cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      #@oportunidade = Oportunidade.find(params[:oportunidade_id])
       render "atividades/new"
     end    
   end
 
   def update
     if @atividade.update(atividade_params)
-      redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+      #redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+      redirect_to atividades_path
     else
-      @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
-      @oportunidade = Oportunidade.find(params[:oportunidade_id])
+      #@cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
+      #$@oportunidade = Oportunidade.find(params[:oportunidade_id])
       render "atividades/edit"
     end    
   end
@@ -44,7 +51,8 @@ class AtividadesController < ApplicationController
   def destroy
     @atividade.destroy
     
-    redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+    #redirect_to cliente_potencial_oportunidade_path(params[:cliente_potencial_id], params[:oportunidade_id])
+    redirect_to atividades_path
   end
 
   private
@@ -55,6 +63,6 @@ class AtividadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def atividade_params
-      params.require(:atividade).permit(:nome, :tipo, :descricao, :observacao, :acompanhamento, :status, :oportunidade_id, :prioridade, :data_prevista, :data_realizada)
+      params.require(:atividade).permit(:nome, :tipo, :descricao, :observacao, :acompanhamento, :status, :oportunidade_id, :prioridade, :data_prevista, :data_realizada, :cliente_potencial_id)
     end
 end

@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Atividades</h1>
+<div class="page-header">
+  <h1>Atividades</h1>
+</div>
 
-<table>
+<%= link_to 'Nova Atividade', new_atividade_path, :class => "btn btn-primary" %><br><br>
+
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Tipo</th>
-      <th>Descricao</th>
-      <th>Observacao</th>
-      <th>Acompanhamento</th>
       <th>Status</th>
-      <th>Oportunidade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,20 +20,12 @@
     <% @atividades.each do |atividade| %>
       <tr>
         <td><%= atividade.nome %></td>
-        <td><%= atividade.tipo %></td>
-        <td><%= atividade.descricao %></td>
-        <td><%= atividade.observacao %></td>
-        <td><%= atividade.acompanhamento %></td>
-        <td><%= atividade.status %></td>
-        <td><%= atividade.oportunidade %></td>
-        <td><%= link_to 'Show', atividade %></td>
-        <td><%= link_to 'Edit', edit_atividade_path(atividade) %></td>
-        <td><%= link_to 'Destroy', atividade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= atividade_tipo(atividade.tipo) %></td>
+        <td><%= atividade_status(atividade.status) %></td>
+        <td><%= link_to 'Exibir', atividade, :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_atividade_path(atividade), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Excluir', atividade, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Atividade', new_atividade_path %>

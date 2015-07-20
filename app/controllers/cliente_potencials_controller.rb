@@ -10,6 +10,7 @@ class ClientePotencialsController < ApplicationController
   # GET /cliente_potencials/1
   # GET /cliente_potencials/1.json
   def show
+    @atividades = Atividade.where("cliente_potencial_id = ?", params[:id])
   end
 
   # GET /cliente_potencials/new

@@ -50,6 +50,7 @@
             <li class="active"><a href="/">Home</a></li>
             <% if user_signed_in? %>
               <li> <%= link_to "Clientes Potenciais", cliente_potencials_path %> </li>
+              <li> <%= link_to "Atividades", atividades_path %> </li>
               <li> <%= link_to "Produtos", produtos_path %> </li>
             <% end %>
           </ul>

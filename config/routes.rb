@@ -12,19 +12,20 @@ end
 
 Rails.application.routes.draw do
 
-  resources :enderecos
   constraints(SubdomainPresent) do
     root 'pages#dashboard', as: :subdomain_root
+    get 'oportunidades/update_oportunidades', as: 'update_oportunidades'
     devise_for :users
     resources :accounts
     resources :produtos
     resources :cliente_potencials do
       resources :oportunidades do
-        resources :atividades
+        #resources :atividades
       end      
       resources :contatos
       resources :enderecos
     end
+    resources :atividades
   end
 
   constraints(SubdomainBlank) do

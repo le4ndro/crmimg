@@ -10,7 +10,7 @@ class CreateAtividades < ActiveRecord::Migration
       t.string :prioridade
       t.date :data_prevista
       t.date :data_realizada
-      t.references :oportunidade, index: true, foreign_key: true
+      #t.references :oportunidade, index: true, foreign_key: true
 
       t.timestamps null: false
     end

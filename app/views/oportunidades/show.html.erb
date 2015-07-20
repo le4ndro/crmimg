@@ -25,17 +25,23 @@
 
 <p>
   <strong>Decisor:</strong>
-  <%= @oportunidade.decisor.nome %>
+  <% if @oportunidade.decisor != nil %>
+    <%= @oportunidade.decisor.nome %>
+  <% end %>
 </p>
 
 <p>
   <strong>Influenciador:</strong>
-  <%= @oportunidade.influenciador.nome %>
+  <% if @oportunidade.influenciador != nil %>
+    <%= @oportunidade.influenciador.nome %>
+  <% end %>
 </p>
 
 <p>
   <strong>Comprador:</strong>
-  <%= @oportunidade.comprador.nome %>
+  <% if @oportunidade.comprador != nil %>
+    <%= @oportunidade.comprador.nome %>
+  <% end %>
 </p>
 
 <p>
@@ -43,9 +49,12 @@
   <%= @oportunidade.observacao %>
 </p>
 
+<br>
+
 <h3>Atividades</h3>
 
-<%= link_to 'Nova Atividade', new_cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id), :class => "btn btn-primary" %><br><br>
+<%= link_to 'Nova Atividade', new_atividade_path, :class => "btn btn-primary" %><br><br>
+
 
 <table class="table table-bordered">
   <thead>
@@ -59,21 +68,19 @@
   </thead>
 
   <tbody>
-    <% @oportunidade.atividades.each do |atividade| %>
+    <% @atividades.each do |atividade| %>
       <tr>
         <td><%= atividade.nome %></td>
         <td><%= atividade_tipo(atividade.tipo) %></td>
         <td><%= atividade.descricao %></td>
         <td><%= atividade_status(atividade.status) %></td>
-        <td><%= link_to 'Exibir', cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), :class => "btn btn-primary btn-xs" %></td>
-        <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), :class => "btn btn-primary btn-xs" %></td>
-        <td><%= link_to 'Excluir', cliente_potencial_oportunidade_atividade_path(@oportunidade.cliente_potencial_id, @oportunidade.id, atividade.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Exibir', atividade, :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Editar', edit_atividade_path(atividade), :class => "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Excluir', atividade, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => @oportunidade.cliente_potencial_id, :id => @oportunidade.id) %> |
 <%= link_to 'Voltar', cliente_potencial_path(@oportunidade.cliente_potencial_id) %>

@@ -30,9 +30,18 @@
 </p>
 
 <p>
-  <strong>Oportunidade:</strong>
-  <%= @atividade.oportunidade.nome %>
+  <strong>Cliente Potencial:</strong>
+  <% if @atividade.cliente_potencial != nil %>
+    <%= @atividade.cliente_potencial.nome %>
+  <% end %>
 </p>
 
-<%= link_to 'Editar', edit_cliente_potencial_oportunidade_atividade_path(@atividade.oportunidade.cliente_potencial_id, @atividade.oportunidade.id, @atividade.id) %> |
-<%= link_to 'Voltar', cliente_potencial_oportunidade_path(@atividade.oportunidade.cliente_potencial_id, @atividade.oportunidade.id) %>
+<p>
+  <strong>Oportunidade:</strong>
+  <% if @atividade.oportunidade != nil %>
+    <%= @atividade.oportunidade.nome %>
+  <% end %>
+</p>
+
+<%= link_to 'Editar', edit_atividade_path(@atividade.id) %> |
+<%= link_to 'Voltar', atividades_path %>

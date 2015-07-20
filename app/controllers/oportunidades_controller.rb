@@ -7,6 +7,7 @@ class OportunidadesController < ApplicationController
   end
 
   def show
+    @atividades = Atividade.where("oportunidade_id = ?", params[:id])
   end
 
   def new
@@ -37,6 +38,15 @@ class OportunidadesController < ApplicationController
       @cliente_potencial = ClientePotencial.find(params[:cliente_potencial_id])
       render "oportunidades/edit"
     end    
+  end
+
+  #Usado para carregar oportunidades de um cliente potencia via ajax
+  def update_oportunidades
+    @oportunidades = Oportunidade.where("cliente_potencial_id = ?", params[:cliente_potencial_id])
+    
+    respond_to do |format|
+      format.js
+    end  
   end
 
   def destroy
