@@ -38,17 +38,17 @@
 
   <div class="form-group">
     <%= f.label :decisor %>
-    <%= f.collection_select :decisor_id, @cliente_potencial.contatos.all, :id, :nome, {}, {class: "form-control"} %>
+    <%= f.collection_select :decisor_id, @cliente_potencial.contatos.all, :id, :nome, {include_blank: "Selecione"}, {class: "form-control"} %>
   </div>
 
   <div class="form-group">
     <%= f.label :influenciador %>
-    <%= f.collection_select :influenciador_id, @cliente_potencial.contatos.all, :id, :nome, {}, {class: "form-control"} %>
+    <%= f.collection_select :influenciador_id, @cliente_potencial.contatos.all, :id, :nome, {include_blank: "Selecione"}, {class: "form-control"} %>
   </div>
 
   <div class="form-group">
     <%= f.label :comprador %>
-    <%= f.collection_select :comprador_id, @cliente_potencial.contatos.all, :id, :nome, {}, {class: "form-control"} %>
+    <%= f.collection_select :comprador_id, @cliente_potencial.contatos.all, :id, :nome, {include_blank: "Selecione"}, {class: "form-control"} %>
   </div>
   
   <div class="form-group">

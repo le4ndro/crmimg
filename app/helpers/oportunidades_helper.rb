@@ -14,32 +14,32 @@ module OportunidadesHelper
 	def oportunidade_probabilidade(probabilidade)
 		case probabilidade
 		when '1'
-		  @status = "Remota"
+		  @probabilidade = "Remota"
 		when '2'
-		  @status = "Baixa"
+		  @probabilidade = "Baixa"
 		when '3'
-		  @status = "Grande"
+		  @probabilidade = "Grande"
 		when '4'
-			@status = "Quente"    
+			@probabilidade = "Quente"    
 		end
 	end
 	
 	def oportunidade_etapa(etapa)
 		case etapa
 		when '1'
-		  @status = "Prospecção"
+		  @etapa = "Prospecção"
 		when '2'
-		  @status = "Qualificação"
+		  @etapa = "Qualificação"
 		when '3'
-		  @status = "Apresentação"
+		  @etapa = "Apresentação"
 		when '4'
-			@status = "Maturação"
+			@etapa = "Maturação"
 		when '5'
-			@status = "Negociação"
+			@etapa = "Negociação"
 		when '6'
-			@status = "Fechamento"
+			@etapa = "Fechamento"
 		when '7'
-			@status = "Pós-Venda"			    
+			@etapa = "Pós-Venda"			    
 		end
 	end
 end

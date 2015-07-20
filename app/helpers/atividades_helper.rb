@@ -3,13 +3,13 @@ module AtividadesHelper
 	def atividade_tipo(tipo)
 		case tipo
 		when '1'
-		  @status = "Telefonema"
+		  @tipo = "Telefonema"
 		when '2'
-		  @status = "E-Mail"
+		  @tipo = "E-Mail"
 		when '3'
-		  @status = "Reunião"
+		  @tipo = "Reunião"
 		when '4'
-			@status = "Visita"    
+			@tipo = "Visita"    
 		end
 	end
 
@@ -31,15 +31,15 @@ module AtividadesHelper
 	def atividade_prioridade(prioridade)
 		case prioridade
 		when '1'
-		  @status = "Baixa"
+		  @prioridade = "Baixa"
 		when '2'
-		  @status = "Média"
+		  @prioridade = "Média"
 		when '3'
-		  @status = "Alta"  
+		  @prioridade = "Alta"  
 		when '4'
-		  @status = "Urgente"  
+		  @prioridade = "Urgente"  
 		when '5'
-		  @status = "Crítica"  
+		  @prioridade = "Crítica"  
 		end
 	end
 

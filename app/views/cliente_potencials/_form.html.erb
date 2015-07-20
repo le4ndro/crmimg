@@ -33,11 +33,12 @@
         <div class="form-group">
           <%= f.label :porte %><br>
           <%= f.select(:porte, 
-              options_for_select([['Micro', '1'], ['Pequena', '2'], ['Média', '3'], ['Média-Grande', '4'], ['Grande', '5']]), {}, {class: "form-control"}) %>
+              options_for_select([['Micro', '1'], ['Pequena', '2'], ['Média', '3'], ['Média-Grande', '4'], ['Grande', '5']]), {include_blank: "Selecione"}, {class: "form-control"}) %>
         </div>
          <div class="form-group">
-          <%= f.label :numero_funcionarios %><br>
-          <%= f.text_field :numero_funcionarios, class: "form-control" %>
+          <%= f.label :numero_funcionarios, "Número de Funcionários" %><br>
+          <%= f.select(:numero_funcionarios, 
+              options_for_select([['até 10', 1], ['entre 11 e 49', 2], ['entre 50 e 99', 3], ['mais de 99', 4]]), {include_blank: "Selecione"}, {class: "form-control"}) %>
         </div>
          <div class="form-group">
           <%= f.label :faturamento %><br>
