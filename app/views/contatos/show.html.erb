@@ -1,49 +1,73 @@
+<p id="notice"><%= notice %></p>
+
 <div class="page-header">
   <h1><%= @contato.nome %></h1>
 </div>
 
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <strong>Cargo:</strong><br>
+          <%= @contato.cargo %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Cargo:</strong>
-  <%= @contato.cargo %>
-</p>
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          <strong>Telefone:</strong><br>
+          <%= @contato.telefone %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Celular:</strong><br>
+          <%= @contato.celular %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Email:</strong><br>
+          <%= @contato.email %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @contato.telefone %>
-</p>
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          <strong>Facebook:</strong><br>
+          <%= @contato.facebook %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Linkedin:</strong><br>
+          <%= @contato.linkedin %>
+        </p>
+      </div>  
+      <div class="col-md-4">
+        <p>
+          <strong>Googleplus:</strong><br>
+          <%= @contato.googleplus %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Celular:</strong>
-  <%= @contato.celular %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contato.email %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @contato.facebook %>
-</p>
-
-<p>
-  <strong>Linkedin:</strong>
-  <%= @contato.linkedin %>
-</p>
-
-<p>
-  <strong>Googleplus:</strong>
-  <%= @contato.googleplus %>
-</p>
-
-<p>
-  <strong>Observações:</strong>
-  <%= @contato.observacao %>
-</p>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <strong>Observações:</strong><br>
+          <%= @contato.observacao %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) %> |
-<%= link_to 'Voltar', cliente_potencial_path(@contato.cliente_potencial_id) %>
+<%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => @contato.cliente_potencial_id, :id => @contato.id) , :class => "btn btn-primary" %> 
+<%= link_to 'Voltar', cliente_potencial_path(@contato.cliente_potencial_id) , :class => "btn btn-primary" %>

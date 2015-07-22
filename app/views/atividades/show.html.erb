@@ -1,47 +1,66 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-  <h1><%= @atividade.nome %></h1>
+  <h1><%= atividade_tipo(@atividade.tipo)  %> - <%= @atividade.nome %></h1>
 </div>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= atividade_tipo(@atividade.tipo)  %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @atividade.descricao %>
-</p>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <strong>Descrição:</strong><br>
+          <%= @atividade.descricao %>
+        </p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          <strong>Status:</strong><br>
+          <%= atividade_status(@atividade.status) %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Cliente Potencial:</strong><br>
+          <% if @atividade.cliente_potencial != nil %>
+            <%= @atividade.cliente_potencial.nome %>
+          <% end %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Oportunidade:</strong><br>
+          <% if @atividade.oportunidade != nil %>
+            <%= @atividade.oportunidade.nome %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <strong>Observações:</strong><br>
+          <%= @atividade.observacao %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Acompanhamento:</strong>
-  <%= @atividade.acompanhamento %>
-</p>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <strong>Acompanhamento:</strong><br>
+          <%= @atividade.acompanhamento %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= atividade_status(@atividade.status) %>
-</p>
 
-<p>
-  <strong>Observações:</strong>
-  <%= @atividade.observacao %>
-</p>
 
-<p>
-  <strong>Cliente Potencial:</strong>
-  <% if @atividade.cliente_potencial != nil %>
-    <%= @atividade.cliente_potencial.nome %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Oportunidade:</strong>
-  <% if @atividade.oportunidade != nil %>
-    <%= @atividade.oportunidade.nome %>
-  <% end %>
-</p>
-
-<%= link_to 'Editar', edit_atividade_path(@atividade.id) %> |
-<%= link_to 'Voltar', atividades_path %>
+<%= link_to 'Editar', edit_atividade_path(@atividade.id) , :class => "btn btn-primary" %> 
+<%= link_to 'Voltar', atividades_path , :class => "btn btn-primary" %>

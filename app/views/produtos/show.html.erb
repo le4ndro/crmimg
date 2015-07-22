@@ -4,20 +4,37 @@
 	<h1><%= @produto.nome %></h1>
 </div>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @produto.descricao %>
-</p>
 
-<p>
-  <strong>Preco:</strong>
-  <%= @produto.preco %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<div class="row">
+  		<div class="col-md-12">
+		    <p>
+				  <strong>Descricao:</strong>
+				  <%= @produto.descricao %>
+				</p>
+		  </div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+				  <strong>Preço:</strong>
+				  <%= @produto.preco %>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+				  <strong>Observações:</strong>
+				  <%= @produto.observacao %>
+				</p>
+			</div>
+		</div>
+  </div>
+</div>
 
-<p>
-  <strong>Observações:</strong>
-  <%= @produto.observacao %>
-</p>
 
-<%= link_to 'Editar', edit_produto_path(@produto) %> |
-<%= link_to 'Voltar', produtos_path %>
+
+<%= link_to 'Editar', edit_produto_path(@produto) , :class => "btn btn-primary" %>
+<%= link_to 'Voltar', produtos_path , :class => "btn btn-primary" %>

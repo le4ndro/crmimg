@@ -3,51 +3,74 @@
 <div class="page-header">
   <h1><%= @oportunidade.nome %></h1>
 </div>
-<p>
-  <strong>Descrição:</strong>
-  <%= @oportunidade.descricao %>
-</p>
 
-<p>
-  <strong>Status:</strong>
-  <%= oportunidade_status(@oportunidade.status) %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row"></div>
+    <p>
+      <strong>Descrição:</strong><br>
+      <%= @oportunidade.descricao %>
+    </p>
 
-<p>
-  <strong>Receita estimada:</strong>
-  <%= @oportunidade.receita_estimada %>
-</p>
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          <strong>Status:</strong><br>
+          <%= oportunidade_status(@oportunidade.status) %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Receita estimada:</strong><br>
+          <%= @oportunidade.receita_estimada %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Probabilidade:</strong><br>
+          <%= oportunidade_probabilidade(@oportunidade.probabilidade) %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          <strong>Decisor:</strong><br>
+          <% if @oportunidade.decisor != nil %>
+            <%= @oportunidade.decisor.nome %>
+          <% end %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Influenciador:</strong><br>
+          <% if @oportunidade.influenciador != nil %>
+            <%= @oportunidade.influenciador.nome %>
+          <% end %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p>
+          <strong>Comprador:</strong><br>
+          <% if @oportunidade.comprador != nil %>
+            <%= @oportunidade.comprador.nome %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <strong>Observação:</strong><br>
+          <%= @oportunidade.observacao %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Probabilidade:</strong>
-  <%= oportunidade_probabilidade(@oportunidade.probabilidade) %>
-</p>
 
-<p>
-  <strong>Decisor:</strong>
-  <% if @oportunidade.decisor != nil %>
-    <%= @oportunidade.decisor.nome %>
-  <% end %>
-</p>
 
-<p>
-  <strong>Influenciador:</strong>
-  <% if @oportunidade.influenciador != nil %>
-    <%= @oportunidade.influenciador.nome %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Comprador:</strong>
-  <% if @oportunidade.comprador != nil %>
-    <%= @oportunidade.comprador.nome %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Observação:</strong>
-  <%= @oportunidade.observacao %>
-</p>
 
 <br>
 
@@ -82,5 +105,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => @oportunidade.cliente_potencial_id, :id => @oportunidade.id) %> |
-<%= link_to 'Voltar', cliente_potencial_path(@oportunidade.cliente_potencial_id) %>
+<%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => @oportunidade.cliente_potencial_id, :id => @oportunidade.id) , :class => "btn btn-primary" %> 
+<%= link_to 'Voltar', cliente_potencial_path(@oportunidade.cliente_potencial_id) , :class => "btn btn-primary" %>
