@@ -7,7 +7,24 @@
 <%= link_to 'Novo Cliente Potencial', new_cliente_potencial_path, :class => "btn btn-primary" %><br><br>
 
 
+<%= form_tag(cliente_potencials_path, :method => "get", id: "search-form") do %>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="custom-search-input">
+          <div class="input-group col-md-12">
+              <%= text_field_tag :search, params[:search], placeholder: "Buscar Clientes Potenciais", class: "form-control" %>
+              <span class="input-group-btn">
+                  <button class="btn btn-info btn-lg" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                  </button>
+              </span>
+          </div>
+      </div>
+    </div>
+  </div>
 
+<% end %>
+<br><br>
   
 <% @cliente_potencials.each do |cliente_potencial| %>
   <div class="panel panel-primary">

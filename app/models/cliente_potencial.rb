@@ -4,4 +4,8 @@ class ClientePotencial < ActiveRecord::Base
 	has_many :contatos
   has_many :oportunidades
   has_many :enderecos
+
+  def self.searchByNome(search)
+  	where("nome like ?", "%#{search}%")
+  end
 end

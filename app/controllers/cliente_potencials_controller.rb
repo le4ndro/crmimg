@@ -4,8 +4,12 @@ class ClientePotencialsController < ApplicationController
   # GET /cliente_potencials
   # GET /cliente_potencials.json
   def index
-    #@cliente_potencials = ClientePotencial.all
-    @cliente_potencials = ClientePotencial.page(params[:page]).per(5)
+    if params[:search]
+      @cliente_potencials = ClientePotencial.searchByNome(params[:search])
+      @cliente_potencials = Kaminari.paginate_array(@cliente_potencials).page(params[:page]).per(5)   
+    else
+      @cliente_potencials = ClientePotencial.page(params[:page]).per(5)
+    end    
   end
 
   # GET /cliente_potencials/1
