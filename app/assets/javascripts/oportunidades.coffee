@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-console.log("Entrei no ajax")
 $ ->
   $(document).on 'change', '#cliente_potencial_select', (evt) ->
     $.ajax '/oportunidades/update_oportunidades',

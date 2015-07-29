@@ -54,9 +54,9 @@
           </div>
           
           <div class="col-md-2">
-            <%= link_to '', cliente_potencial, :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %></td>
-            <%= link_to '', edit_cliente_potencial_path(cliente_potencial), :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %></td>
-            <%= link_to '', cliente_potencial, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
+            <%= link_to '', cliente_potencial, data: { no_turbolink: true, toggle: "tooltip", placement: "top" }, title: "Ver Detalhes", :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %></td>
+            <%= link_to '', edit_cliente_potencial_path(cliente_potencial), data: {toggle: "tooltip", placement: "top" }, title: "Editar", :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %></td>
+            <%= link_to '', cliente_potencial, method: :delete, data: { confirm: 'Tem certeza?', toggle: "tooltip", placement: "top" }, title: "Excluir" , :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
           </div>
 
         </div>
@@ -66,5 +66,9 @@
 <%= paginate @cliente_potencials %>
 <%= page_entries_info @cliente_potencials %>
   
-
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  })
+</script>
 

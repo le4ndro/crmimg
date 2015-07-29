@@ -80,7 +80,7 @@
 
     <%= link_to 'Incluir Oportunidade', new_cliente_potencial_oportunidade_path(@cliente_potencial), :class => "btn btn-primary" %><br><br>
 
-    <table class="table table-bordered">
+    <table id="tboportunidade" class="display" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Nome</th>
@@ -88,9 +88,20 @@
           <th>Etapa</th>
           <th>Receita estimada</th>
           <th>Probabilidade</th> 
-          <th colspan="3"></th>
+          <th></th>
         </tr>
       </thead>
+
+      <tfoot>
+        <tr>
+          <th>Nome</th>
+          <th>Status</th>
+          <th>Etapa</th>
+          <th>Receita estimada</th>
+          <th>Probabilidade</th> 
+          <th></th>
+        </tr>
+      </tfoot>
 
       <tbody>
         <% @cliente_potencial.oportunidades.each do |oportunidade| %>
@@ -100,9 +111,11 @@
             <td><%= oportunidade_etapa(oportunidade.etapa) %></td>
             <td><%= oportunidade.receita_estimada %></td>
             <td><%= oportunidade_probabilidade(oportunidade.probabilidade) %></td>
-            <td><%= link_to 'Exibir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) , :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Editar', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id) , :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Excluir', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Tem certeza?' } , :class => "btn btn-primary btn-xs" %></td>
+            <td><%= link_to '', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), data: {toggle: "tooltip", placement: "top" }, title: "Ver Detalhes" , :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %>
+                <%= link_to '', edit_cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), data: {toggle: "tooltip", placement: "top" }, title: "Editar" , :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+                <%= link_to '', cliente_potencial_oportunidade_path(:cliente_potencial_id => oportunidade.cliente_potencial_id, :id => oportunidade.id), method: :delete, data: { confirm: 'Tem certeza?' }, data: {toggle: "tooltip", placement: "top" }, title: "Excluir" , :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
+            </td>
+            
           </tr>
         <% end %>
       </tbody>
@@ -117,16 +130,26 @@
     <%= link_to 'Nova Atividade', new_atividade_path, :class => "btn btn-primary" %><br><br>
 
 
-    <table class="table table-bordered">
+    <table id="tbatividade" class="display" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Nome</th>
           <th>Tipo</th>
           <th>Descrição</th>
           <th>Status</th>
-          <th colspan="3"></th>
+          <th></th>
         </tr>
       </thead>
+
+      <tfoot>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </tfoot>
 
       <tbody>
         <% @atividades.each do |atividade| %>
@@ -135,9 +158,11 @@
             <td><%= atividade_tipo(atividade.tipo) %></td>
             <td><%= atividade.descricao %></td>
             <td><%= atividade_status(atividade.status) %></td>
-            <td><%= link_to 'Exibir', atividade, :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Editar', edit_atividade_path(atividade), :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Excluir', atividade, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
+            <td>
+              <%= link_to '', atividade, data: {toggle: "tooltip", placement: "top" }, title: "Ver Detalhes", :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %>
+              <%= link_to '', edit_atividade_path(atividade), data: {toggle: "tooltip", placement: "top" }, title: "Editar", :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+              <%= link_to '', atividade, method: :delete, data: { confirm: 'Tem certeza?', toggle: "tooltip", placement: "top" }, title: "Excluir", :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -151,7 +176,7 @@
 
     <%= link_to 'Incluir Endereço', new_cliente_potencial_endereco_path(@cliente_potencial), :class => "btn btn-primary" %><br><br>
 
-    <table class="table table-bordered">
+    <table id="tbendereco" class="display" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Nome</th>
@@ -160,9 +185,21 @@
           <th>Cidade</th>
           <th>UF</th>
           <th>CEP</th>
-          <th colspan="3"></th>
+          <th></th>
         </tr>
       </thead>
+
+      <tfoot>
+        <tr>
+          <th>Nome</th>
+          <th>Logradouro</th>
+          <th>Bairro</th>
+          <th>Cidade</th>
+          <th>UF</th>
+          <th>CEP</th>
+          <th></th>
+        </tr>
+      </tfoot>
 
       <tbody>
         <% @cliente_potencial.enderecos.each do |endereco| %>
@@ -173,9 +210,11 @@
             <td><%= endereco.cidade %></td>
             <td><%= endereco.uf %></td>
             <td><%= endereco.cep %></td>
-            <td><%= link_to 'Exibir', cliente_potencial_endereco_path(:cliente_potencial_id => endereco.cliente_potencial_id, :id => endereco.id) , :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Editar', edit_cliente_potencial_endereco_path(:cliente_potencial_id => endereco.cliente_potencial_id, :id => endereco.id) , :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Excluir', cliente_potencial_endereco_path(:cliente_potencial_id => endereco.cliente_potencial_id, :id => endereco.id), method: :delete, data: { confirm: 'Tem certeza?' } , :class => "btn btn-primary btn-xs" %></td>
+            <td>
+              <%= link_to '', cliente_potencial_endereco_path(:cliente_potencial_id => endereco.cliente_potencial_id, :id => endereco.id), data: {toggle: "tooltip", placement: "top" }, title: "Ver Detalhes" , :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %>
+              <%= link_to '', edit_cliente_potencial_endereco_path(:cliente_potencial_id => endereco.cliente_potencial_id, :id => endereco.id), data: {toggle: "tooltip", placement: "top" }, title: "Editar" , :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+              <%= link_to '', cliente_potencial_endereco_path(:cliente_potencial_id => endereco.cliente_potencial_id, :id => endereco.id), method: :delete, data: { confirm: 'Tem certeza?', toggle: "tooltip", placement: "top" }, title: "Excluir" , :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -189,7 +228,7 @@
 
     <%= link_to 'Incluir Contato', new_cliente_potencial_contato_path(@cliente_potencial), :class => "btn btn-primary" %><br><br>
 
-    <table class="table table-bordered">
+    <table id="tbcontato" class="display" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>Nome</th>
@@ -201,9 +240,24 @@
           <th>Linkedin</th>
           <th>Googleplus</th>
           
-          <th colspan="3"></th>
+          <th></th>
         </tr>
       </thead>
+
+      <tfoot>
+        <tr>
+          <th>Nome</th>
+          <th>Cargo</th>
+          <th>Telefone</th>
+          <th>Celular</th>
+          <th>Email</th>
+          <th>Facebook</th>
+          <th>Linkedin</th>
+          <th>Googleplus</th>
+          
+          <th></th>
+        </tr>
+      </tfoot>
 
       <tbody>
         <% @cliente_potencial.contatos.each do |contato| %>
@@ -216,9 +270,11 @@
             <td><%= contato.facebook %></td>
             <td><%= contato.linkedin %></td>
             <td><%= contato.googleplus %></td>
-            <td><%= link_to 'Exibir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Editar', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), :class => "btn btn-primary btn-xs" %></td>
-            <td><%= link_to 'Excluir', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-primary btn-xs" %></td>
+            <td>
+              <%= link_to '', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), data: {toggle: "tooltip", placement: "top" }, title: "Ver Detalhes", :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %>
+              <%= link_to '', edit_cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), data: {toggle: "tooltip", placement: "top" }, title: "Editar", :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+              <%= link_to '', cliente_potencial_contato_path(:cliente_potencial_id => contato.cliente_potencial_id, :id => contato.id), method: :delete, data: { confirm: 'Tem certeza?', toggle: "tooltip", placement: "top" }, title: "Excluir", :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -230,7 +286,8 @@
 <%= link_to 'Voltar', cliente_potencials_path , :class => "btn btn-primary" %>
 
 <script type="text/javascript">
-    jQuery(document).ready(function ($) {
+    $(document).ready(function() {
         $('#tabs').tab();
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>  
