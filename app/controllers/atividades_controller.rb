@@ -5,6 +5,10 @@ class AtividadesController < ApplicationController
     @atividades = Atividade.all
   end
 
+  def agenda
+    @atividades = Atividade.where("data_prevista_inicio IS NOT NULL") 
+  end  
+
   def show
   end
 
@@ -14,7 +18,11 @@ class AtividadesController < ApplicationController
     #@atividade = @oportunidade.atividades.build
     @atividade = Atividade.new
     @cliente_potencials = ClientePotencial.all
-    @oportunidades = Oportunidade.where("cliente_potencial_id = ?", ClientePotencial.first.id)
+    if @cliente_potencials.count > 0
+      @oportunidades = Oportunidade.where("cliente_potencial_id = ?", ClientePotencial.first.id)  
+    else
+      @oportunidades = Oportunidade.all  
+    end
   end
 
   def edit
@@ -22,7 +30,11 @@ class AtividadesController < ApplicationController
     #@oportunidade = Oportunidade.find(params[:oportunidade_id])
     @atividade = Atividade.find(params[:id])
     @cliente_potencials = ClientePotencial.all
-    @oportunidades = Oportunidade.where("cliente_potencial_id = ?", ClientePotencial.first.id)
+    if @cliente_potencials.count > 0
+      @oportunidades = Oportunidade.where("cliente_potencial_id = ?", ClientePotencial.first.id)
+    else
+      @oportunidades = Oportunidade.all    
+    end
   end
 
   def create
@@ -63,6 +75,6 @@ class AtividadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def atividade_params
-      params.require(:atividade).permit(:nome, :tipo, :descricao, :observacao, :acompanhamento, :status, :oportunidade_id, :prioridade, :data_prevista, :data_realizada, :cliente_potencial_id)
+      params.require(:atividade).permit(:nome, :tipo, :descricao, :observacao, :acompanhamento, :status, :oportunidade_id, :prioridade, :data_prevista_inicio, :data_realizada_fim, :data_realizada, :cliente_potencial_id)
     end
 end

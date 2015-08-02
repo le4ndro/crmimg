@@ -3,4 +3,92 @@
 	<div class="page-header">
 		<h1>Meu Dashboard</h1>
 	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="well well-lg">
+				<center><strong>Vida média dos negócios</strong></center><br>
+				<center>34 dias</center> 
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg">
+				<center><strong>Receita de negócios em seu funil de vendas</strong></center><br>
+				<center>R$ 150.000,00</center> 
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="well well-lg">
+				<center><strong>Taxa de Conversão</strong></center><br>
+				<center>64%</center> 
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="row">
+		
+		<div class="col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Receita Estimada por Cliente Potencial</h3>
+			  </div>
+			  <div class="panel-body">
+			    <%= pie_chart Oportunidade.group(:cliente_potencial).sum(:receita_estimada) %>
+			  </div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Receita Estimada por Etapa de Venda</h3>
+			  </div>
+			  <div class="panel-body">
+			    <%= pie_chart Oportunidade.group(:status).sum(:receita_estimada) %>
+			  </div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Receita Estimada por Probabilidade</h3>
+			  </div>
+			  <div class="panel-body">
+			    <%= pie_chart Oportunidade.group(:status).sum(:receita_estimada) %>
+			  </div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Receita Ganha vs Receita Perdida</h3>
+			  </div>
+			  <div class="panel-body">
+			    <%= pie_chart Oportunidade.group(:status).sum(:receita_estimada) %>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Geração de Oportunidades</h3>
+			  </div>
+			  <div class="panel-body">
+			    <%= line_chart Oportunidade.group_by_day(:created_at, format: "%B %d, %Y").count %>
+			  </div>
+			</div>
+		</div>
+
+	</div>
+
 <% end %>

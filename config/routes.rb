@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   constraints(SubdomainPresent) do
     root 'pages#dashboard', as: :subdomain_root
     get 'oportunidades/update_oportunidades', as: 'update_oportunidades'
+    get '/agenda', to: 'atividades#agenda', as: 'agenda'
     devise_for :users
     resources :accounts
     resources :produtos

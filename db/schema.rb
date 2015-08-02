@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20150720002047) do
     t.text     "acompanhamento"
     t.string   "status"
     t.string   "prioridade"
-    t.date     "data_prevista"
-    t.date     "data_realizada"
+    t.datetime "data_prevista_inicio"
+    t.datetime "data_prevista_fim"
+    t.datetime "data_realizada"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "cliente_potencial_id"

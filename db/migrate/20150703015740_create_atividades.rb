@@ -8,8 +8,9 @@ class CreateAtividades < ActiveRecord::Migration
       t.text :acompanhamento
       t.string :status
       t.string :prioridade
-      t.date :data_prevista
-      t.date :data_realizada
+      t.datetime :data_prevista_inicio
+      t.datetime :data_prevista_fim
+      t.datetime :data_realizada
       #t.references :oportunidade, index: true, foreign_key: true
 
       t.timestamps null: false

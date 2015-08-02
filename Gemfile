@@ -13,6 +13,16 @@ gem 'devise'
 gem 'apartment', '~> 1.0.1'
 gem 'kaminari', '~> 0.16.3'
 gem 'jquery-datatables-rails', '~> 3.3.0'
+
+#Dashboard
+gem 'chartkick', '~> 1.3.2'
+gem 'groupdate', '~> 2.4.0'
+gem 'active_median', '~> 0.1.2'
+
+#Agenda
+gem 'fullcalendar-rails', '~> 2.3.1.0'
+gem 'momentJS', '~> 1.0.1'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
