@@ -5,7 +5,7 @@ default: &default
   pool: 5
   username: devuser
   password: devpass
-  #host: localhost
+  host: localhost
 
 development:
   <<: *default
