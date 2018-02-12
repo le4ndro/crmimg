@@ -6,10 +6,10 @@ class ClientePotencialsController < ApplicationController
   def index
     if params[:search]
       @cliente_potencials = ClientePotencial.searchByNome(params[:search])
-      @cliente_potencials = Kaminari.paginate_array(@cliente_potencials).page(params[:page]).per(5)   
+      @cliente_potencials = Kaminari.paginate_array(@cliente_potencials).page(params[:page]).per(5)
     else
       @cliente_potencials = ClientePotencial.page(params[:page]).per(5)
-    end    
+    end
   end
 
   # GET /cliente_potencials/1

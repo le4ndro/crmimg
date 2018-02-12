@@ -30,7 +30,9 @@
 <% @cliente_potencials.each do |cliente_potencial| %>
     <li class="list-group-item">
       <h4 class="list-group-item-heading"><%= cliente_potencial.nome %></h4>
-        <div class="list-group-item-text row">
+        <div class="list-group-item-text">
+
+
           <div class="col-md-3">
             <strong>Website:</strong>
             <%= cliente_potencial.website %>
@@ -39,7 +41,7 @@
             <strong>Setor:</strong>
             <%= cliente_potencial.setor %>
           </div>
-          <div class="col-md-2"> 
+          <div class="col-md-2">
             <strong>Porte:</strong>
             <%= cliente_potencial_porte(cliente_potencial.porte) %>
           </div>
@@ -52,7 +54,7 @@
             <%= link_to '', edit_cliente_potencial_path(cliente_potencial), data: {toggle: "tooltip", placement: "top" }, title: "Editar", :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %></td>
             <%= link_to '', cliente_potencial, method: :delete, data: { confirm: 'Tem certeza?', toggle: "tooltip", placement: "top" }, title: "Excluir" , :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
           </div>
-        </div>
+        
     </li>
 <% end %>
 </ul>

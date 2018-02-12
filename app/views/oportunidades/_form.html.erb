@@ -12,7 +12,7 @@
   <% end %>
 
   <div><span style="color:red;">*</span> Indica campos obrigatórios</div><br/><br/>
-  
+
   <div class="form-group">
     <%= f.label :nome, "Nome" %>&nbsp;<span style="color:red;">*</span>
     <%= f.text_field :nome, class: "form-control" %>
@@ -23,8 +23,8 @@
   </div>
   <div class="form-group">
     <%= f.label :status %>&nbsp;<span style="color:red;">*</span>
-    <%= f.select(:status, 
-        options_for_select([['Em andamento', '1'], ['Ganho', '2'], ['Perdido', '3']]), {}, {class: "form-control"}) %>
+    <%= f.select(:status,
+        options_for_select([['Em andamento', '1'], ['Ganho', '2'], ['Perdido', '3']], @oportunidade.status), {}, {class: "form-control"}) %>
   </div>
   <div class="form-group">
     <%= f.label :receita_estimada %>&nbsp;<span style="color:red;">*</span>
@@ -32,8 +32,8 @@
   </div>
   <div class="form-group">
     <%= f.label :probabilidade %>&nbsp;<span style="color:red;">*</span>
-    <%= f.select(:probabilidade, 
-        options_for_select([['Remota', '1'], ['Baixa', '2'], ['Grande', '3'], ['Quente', '4']]), {}, {class: "form-control"}) %>
+    <%= f.select(:probabilidade,
+        options_for_select([['Remota', '1'], ['Baixa', '2'], ['Grande', '3'], ['Quente', '4']], @oportunidade.probabilidade), {}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group">
@@ -50,11 +50,11 @@
     <%= f.label :comprador %>
     <%= f.collection_select :comprador_id, @cliente_potencial.contatos.all, :id, :nome, {include_blank: "Selecione"}, {class: "form-control"} %>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :etapa %>&nbsp;<span style="color:red;">*</span>
-    <%= f.select(:etapa, 
-        options_for_select([['Prospecção', '1'], ['Qualificação', '2'], ['Apresentação', '3'], ['Maturação', '4'], ['Negociação', '5'], ['Fechamento', '6'], ['Pós-Venda', '7']]), {}, {class: "form-control"}) %>
+    <%= f.select(:etapa,
+        options_for_select([['Prospecção', '1'], ['Qualificação', '2'], ['Apresentação', '3'], ['Maturação', '4'], ['Negociação', '5'], ['Fechamento', '6'], ['Pós-Venda', '7']], @oportunidade.etapa), {}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group">
@@ -65,5 +65,5 @@
   <div class="actions">
     <%= f.submit "Gravar", class: "btn btn-primary" %>
   </div>
-  
+
 <% end %>

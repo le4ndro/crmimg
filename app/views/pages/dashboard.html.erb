@@ -47,7 +47,7 @@
 			    <h3 class="panel-title">Receita Estimada por Etapa de Venda</h3>
 			  </div>
 			  <div class="panel-body">
-			    <%= pie_chart Oportunidade.group(:status).sum(:receita_estimada) %>
+			    <%= pie_chart Oportunidade.select("etapa, sum(receita_estimada) as receita_estimada").group("etapa").map { |o| o.etapa = oportunidade_etapa(o.etapa), o.receita_estimada} %>
 			  </div>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 			    <h3 class="panel-title">Receita Estimada por Probabilidade</h3>
 			  </div>
 			  <div class="panel-body">
-			    <%= pie_chart Oportunidade.group(:probabilidade).sum(:receita_estimada) %>
+				<%= pie_chart Oportunidade.select("probabilidade, sum(receita_estimada) as receita_estimada").group("probabilidade").map { |o| o.probabilidade = oportunidade_probabilidade(o.probabilidade), o.receita_estimada} %>
 			  </div>
 			</div>
 		</div>
@@ -69,10 +69,10 @@
 		<div class="col-md-6">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    <h3 class="panel-title">Receita Ganha vs Receita Perdida</h3>
+			    <h3 class="panel-title">Receita Estimada por Status da Venda</h3>
 			  </div>
-			  <div class="panel-body">
-			    <%= pie_chart Oportunidade.group(:status).sum(:receita_estimada) %>
+			  <div class="panel-body">			    
+				<%= pie_chart Oportunidade.select("status, sum(receita_estimada) as receita_estimada").group("status").map { |o| o.status = oportunidade_status(o.status), o.receita_estimada} %>
 			  </div>
 			</div>
 		</div>

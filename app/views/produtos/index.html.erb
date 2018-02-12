@@ -34,9 +34,13 @@
         <td style="width:10%">
             <%= link_to '', produto, data: {toggle: "tooltip", placement: "top" }, title: "Ver Detalhes", :class => "btn btn-primary btn-xs glyphicon glyphicon-eye-open" %>
             <%= link_to '', edit_produto_path(produto), data: {toggle: "tooltip", placement: "top" }, title: "Editar", :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
-            <%= link_to '', produto, method: :delete, data: { confirm: 'Tem certeza?' , toggle: "tooltip", placement: "top" }, title: "Excluir", :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>            
+            <%= link_to '', produto, method: :delete, data: { confirm: 'Tem certeza?' , toggle: "tooltip", placement: "top" }, title: "Excluir", :class => "btn btn-primary btn-xs glyphicon glyphicon-trash" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<script type="text/javascript">
+    $('#tbproduto').DataTable({});
+</script>
