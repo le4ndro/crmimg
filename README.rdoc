@@ -17,7 +17,7 @@ What things you need to install the software
 1. Clone this repository
 
 <tt>
-$ git clone https://github.com/le4ndro/crmimg.git
+$ git clone https://github.com/le4ndro/crmimg.git <br>
 $ cd crmimg
 </tt>
 
@@ -59,7 +59,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 == Authors
 
-* **Leandro Souza** - *Initial work*
+* *Leandro Souza* - _Initial work_
 
 == License
 
