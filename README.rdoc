@@ -1,28 +1,70 @@
-== README
+= crmimg
+Demo project using Rails 4.2 and PostgreSQL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Getting Started
 
-Things you may want to cover:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Ruby version
+== Prerequisites
 
-* System dependencies
+What things you need to install the software
 
-* Configuration
+* Ruby 1.9.3 or newer
+* PostgreSQL Database
 
-* Database creation
+=== Installing
 
-* Database initialization
+1. Clone this repository
 
-* How to run the test suite
+<tt>
+$ git clone https://github.com/le4ndro/crmimg.git
+$ cd crmimg
+</tt>
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Install dependencies
 
-* Deployment instructions
+<tt>
+$ bundle install
+</tt>
 
-* ...
+3. Edit /config/database.yml and create database on postgresql
+
+<tt>
+$ ./bin/rake db:create
+</tt>
+
+4. Run migrations
+
+<tt>
+$ ./bin/rake db:migrate
+</tt>
+
+5. Run the application
+
+<tt>
+$ rails s
+</tt>
+
+6. Check at http://lvh.me:3000
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Built With
+
+* [Ruby on Rails](http://guides.rubyonrails.org/v4.2/) - The web framework used
+* [Bootstrap](http://getbootstrap.com/docs/3.3/) - Html framework
+
+== Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+== Authors
+
+* **Leandro Souza** - *Initial work*
+
+== License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+== Acknowledgments
+
+* This project is in development
