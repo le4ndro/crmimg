@@ -17,7 +17,9 @@ What things you need to install the software
 1. Clone this repository
 
 <tt>
-$ git clone https://github.com/le4ndro/crmimg.git <br>
+$ git clone https://github.com/le4ndro/crmimg.git
+</tt>
+<tt>
 $ cd crmimg
 </tt>
 
@@ -50,8 +52,8 @@ $ rails s
 
 == Built With
 
-* [Ruby on Rails](http://guides.rubyonrails.org/v4.2/) - The web framework used
-* [Bootstrap](http://getbootstrap.com/docs/3.3/) - Html framework
+* {Ruby on Rails} [http://guides.rubyonrails.org/v4.2/] - The web framework used
+* {Bootstrap} [http://getbootstrap.com/docs/3.3/] - Html framework
 
 == Versioning
 
